@@ -1,0 +1,64 @@
+
+---- Modify Plot_v04 and use dispatcher&observers to handle begin/end job ----
+
+***
+Use the "Utilities" package already downloaded in version 4
+
+***
+Take the following from particlePlot_v05 (and look at the differences with 
+the v04 version):
+- the new version of "AnalysisInfo.h",
+- the new version of "AnalysisSteering.h,cc",
+- the new version of "main.cc".
+
+***
+Create a new class "Constants" to contain background mean and rms
+
+***
+In "TotalEnergy.h,cc":
+- add the calculation of total energy after background subtraction, 
+  taking the background from "Constants",
+- add a function "energy", similar to "rawSum", to check for new events and 
+  return the result.
+
+***
+In "EnergyDist.cc":
+- read the energy ranges from a text file ("energyRanges") taking 
+  the name from the command line through "AnalysisInfo", with key "ranges",
+  and allowing for different numbers of ranges,
+- add an histogram of the total energy (100 bins, min 0 and max 10000)
+  for all events, taking the total energy, background subtracted, 
+  from "TotalEnergy".
+
+***
+In "BraggStatistic.cc":
+- get the actual energy, background subtracted, from "TotalEnergy", 
+  by calling "energy" in place of "rawSum", 
+- set the mean energy for each point to the actual, background subtracted, 
+  energy.
+
+***
+The execution command should be something as:
+execName input ..../bragg_events.txt ranges energyRanges hist hh.root
+
+********* final list of functions *********
+
+main                   copy   particleReco_v05
+
+********* final list of classes   *********
+
+                       .h                            .cc
+AnalysisInfo           copy   particleReco_v05       copy   Plot_v04
+Constants              done                          to complete
+Event                  copy   Plot_v04               copy   Plot_v04
+EventSource            copy   Plot_v04               copy   Plot_v04
+EventReadFromFile      copy   Plot_v04               copy   Plot_v04
+EventSim               copy   Plot_v04               copy   Plot_v04
+SourceFactory          copy   Plot_v04               copy   Plot_v04
+AnalysisSteering       copy   particleReco_v05       copy   particleReco_v05
+AnalysisFactory        copy   Plot_v04               copy   Plot_v04
+EventDump              copy   Plot_v04               copy   Plot_v04
+TotalEnergy            modify Plot_v04               modify Plot_v04
+EnergyDist             modify Plot_v04               modify Plot_v04
+BraggStatistic         copy   Plot_v04               modify Plot_v04
+BGCalc                 copy   Plot_v04               copy   Plot_v04

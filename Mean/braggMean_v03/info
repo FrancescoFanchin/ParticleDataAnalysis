@@ -1,0 +1,15 @@
+to compile:
+
+rm -f evMean
+c++ -Wall -I. -o evMean main.cc read.cc Event.cc BraggStatistic.cc dump.cc
+
+or
+
+compile
+
+------------
+
+to run:
+
+evMean FILE.txt
+

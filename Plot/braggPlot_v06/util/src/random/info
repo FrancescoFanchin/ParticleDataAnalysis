@@ -1,0 +1,32 @@
+
+Three classes are provided, to generate random numbers with flat or gaussian 
+distribution:
+- in "base" there's a common interface,
+- in "std"  there's a random generator based on stdlib,
+- in "root" there's a random generator based on ROOT.
+
+*** Compile ***
+
+cd ..../util/src/random/base
+source compile
+cd ..../util/src/random/std
+source compile
+cd ..../util/src/random/root
+source compile
+
+then 
+cp ..../util/src/random/std/librandom_std.so   ..../util/lib/librandom_imp.so
+or
+cp ..../util/src/random/root/librandom_root.so ..../util/lib/librandom_imp.so
+
+*** Use ***
+
+At the beginning of each session, for csh:
+setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}":/..../util/lib"
+or, for bash
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}":/..../util/lib"
+
+Compile including only "..../util/include/Random.h"
+
+
+

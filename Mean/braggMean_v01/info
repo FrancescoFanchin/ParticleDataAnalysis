@@ -1,0 +1,15 @@
+to compile:
+
+rm -f evMean
+c++ -std=c++11 -Wall -I. -o evMean main.cc read.cc dump.cc clear.cc add.cc stat.cc
+
+or
+
+compile
+
+------------
+
+to run:
+
+evMean FILE.txt
+

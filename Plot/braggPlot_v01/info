@@ -1,0 +1,17 @@
+to compile:
+
+rm -f main
+c++ -Wall -I. `root-config --cflags` -o main main.cc                              \
+  Event.cc EventSource.cc EventReadFromFile.cc  \
+  AnalysisSteering.cc EnergyDist.cc BraggStatistic.cc EventDump.cc `root-config --libs`
+
+or
+
+compile
+
+------------
+
+to run:
+
+main input FILE.txt
+

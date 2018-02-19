@@ -1,0 +1,54 @@
+
+---- Modify v03 and use interfaces for event read and process ----
+
+Replace "read", "dump" and "stat" global functions to use classes with 
+abstract interfaces, as described in the following.
+
+***
+Take following files from example "particleMean_v04":
+- AnalysisSteering.h ,
+- AnalysisSteering.cc ,
+- EventSource.h ,
+- EventSource.cc ,
+- EventReadFromFile.h ,
+- EventDump.h .
+All these files can be used with no modification
+
+***
+Complete the following files:
+- EventReadFromFile.cc : include in function "readFile" the code
+                         formerly in the global function "read",
+- EventDump.cc         : include in function "process" the code
+                         formerly in the global function "dump".
+***
+Create a class "EnergyDist", inheriting from "AnalysisSteering" and 
+containing a STL array of pointers to "BraggStatistic" objects; use 
+as example the class "ParticleStatistic" in "particleMean_v04".
+Implement the functions:
+- "beginJob" to create and store the pointers to 4 "BraggStatistic" objects 
+  for the 3 energy ranges and background,
+- in "endJob" loop over the "BraggStatistic" objects and for each one 
+  compute mean and rms energies and print results,
+- in "process" loop over the "BraggStatistic" objects and for each one 
+  call the "add" function.
+
+***
+Modify the "main" function to use the modified classes using the 
+file "main.cc" from example "particleMean_v04" as reference: change the 
+analyzers ("EnergyDist" in place of "ParticleStatistic") and remove 
+the simulation part.
+
+********* final list of functions *********
+
+main                   to complete
+
+********* final list of classes   *********
+
+                       .h                            .cc
+Event                  copy   Mean_v03               copy   Mean_v03
+EventReadFromFile      copy   particleMean_v04       to complete
+AnalysisSteering       copy   particleMean_v04       copy   particleMean_v04
+EventSource            copy   particleMean_v04       copy   particleMean_v04
+BraggStatistic         copy   Mean_v03               copy   Mean_v03
+EnergyDist             to complete                   to complete
+EventDump              copy   particleMean_v04       to complete

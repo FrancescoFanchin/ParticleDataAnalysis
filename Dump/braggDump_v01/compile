@@ -1,0 +1,2 @@
+rm -f evDump
+c++ -Wall -I. -o evDump main.cc read.cc dump.cc

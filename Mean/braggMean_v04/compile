@@ -1,0 +1,2 @@
+rm -f main
+c++ -Wall -I. -o main main.cc Event.cc EventSource.cc EventReadFromFile.cc AnalysisSteering.cc EnergyDist.cc BraggStatistic.cc EventDump.cc

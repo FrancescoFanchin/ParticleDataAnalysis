@@ -1,0 +1,1 @@
+c++ -Wall -I `root-config --cflags` -o plot  main.cc   Event.cc BraggStatistic.cc EventDump.cc EventReadFromFile.cc EventSource.cc EnergyDist.cc  AnalysisSteering.cc  SourceFactory.cc AnalysisInfo.cc EventSim.cc  AnalysisFactory.cc `root-config --libs`

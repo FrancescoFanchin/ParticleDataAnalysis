@@ -1,0 +1,6 @@
+
+class          :  create and clone classes
+include        :  header files for random number generator,
+                  Singleton and Dispatcher/Observer
+src/random     :  a random number generator based on stdlib or ROOT,
+                  see src/random/info for usage

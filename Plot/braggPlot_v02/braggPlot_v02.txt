@@ -1,0 +1,36 @@
+
+---- Modify Plot_v01 and use a factory to create data source ----
+
+Use "SourceFactory" to create the "DataSource".
+The execution command should be:
+
+execName input fileName
+or
+execName sim numberOfEvents [seed seedNumber]
+
+***
+Take "AnalysisInfo" and "SourceFactory" from "particleReco_v02".
+
+***
+Modify "main.cc" taking "particleReco_v02" as reference:
+- create an "AnalysisInfo" object and use it to store command line parameters
+- remove the code to create the "EventSource" and use a "SourceFactory" 
+  in its place
+
+********* final list of functions *********
+
+main                   modify Plot_v01
+
+********* final list of classes   *********
+
+                       .h                            .cc
+AnalysisInfo           copy   particleReco_v02       copy   particleReco_v02
+Event                  copy   Plot_v01               copy   Plot_v01
+EventSource            copy   Plot_v01               copy   Plot_v01
+EventReadFromFile      copy   Plot_v01               copy   Plot_v01
+EventSim               done                          done
+SourceFactory          copy   particleReco_v02       copy   particleReco_v02
+AnalysisSteering       copy   Plot_v01               copy   Plot_v01
+EventDump              copy   Plot_v01               copy   Plot_v01
+BraggStatistic         copy   Plot_v01               copy   Plot_v01
+EnergyDist             copy   Plot_v01               copy   Plot_v01

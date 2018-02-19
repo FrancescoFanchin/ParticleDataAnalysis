@@ -1,0 +1,8 @@
+to compile
+
+c++ -Wall -I `root-config --cflags` -o plot  main.cc   Event.cc BraggStatistic.cc EventDump.cc EventReadFromFile.cc EventSource.cc EnergyDist.cc  Constants.cc  AnalysisSteering.cc  SourceFactory.cc AnalysisInfo.cc EventSim.cc  AnalysisFactory.cc  TotalEnergy.cc BGCalc.cc `root-config --libs`
+
+to run 
+
+./plot input FILE.txt dump stat ranges energyRanges hist h.root
+

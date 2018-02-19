@@ -1,0 +1,15 @@
+to compile:
+
+rm -f evDump
+c++ -Wall -I. -o evDump main.cc read.cc dump.cc
+
+or
+
+compile
+
+------------
+
+to run:
+
+evDump FILE.txt
+

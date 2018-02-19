@@ -1,0 +1,42 @@
+
+
+---- Modify Mean_v04 and produce graphs of energy loss ----
+
+Include graphs inside "EnergyDist" class.
+
+***
+In "EnergyDist.h":
+- define a "BraggCurve" struct to hold pointers to a "BraggStatistic" and a
+  "TH1F" object,
+- modify the STL array to hold pointers to "BraggCurve" objects,
+- declare a function "bCreate" to create a "BraggCurve" object 
+  for different total energy ranges.
+
+***
+In "EnergyDist.cc":
+- implement the function "bCreate" taking 3 arguments, one index and min-max
+  energies; use the index to create the name for "TH1F" and min-max energies 
+  to create the "BraggStatistic" object; store the pointers of the objects;
+- in "beginJob" replace the direct creation of "BraggStatistic" object with 
+  calls to "bCreate" for the 3 energy ranges and background,
+- in "endJob" loop over the BraggCurve objects and for each one 
+  get the mean and rms energies and use them to set center and error 
+  values in TH1F by looping over points and using SetBinContent 
+  and SetBinError; save each graph to file after setting the content,
+- in "process" loop over the BraggCurve objects and call the 
+  "add" function for each "BraggStatistic" object.
+
+********* final list of functions *********
+
+main                   copy   Mean_v04
+
+********* final list of classes   *********
+
+                       .h                            .cc
+Event                  copy   Mean_v04               copy   Mean_v04
+EventSource            copy   Mean_v04               copy   Mean_v04
+EventReadFromFile      copy   Mean_v04               copy   Mean_v04
+AnalysisSteering       copy   Mean_v04               copy   Mean_v04
+EventDump              copy   Mean_v04               copy   Mean_v04
+BraggStatistic         copy   Mean_v04               copy   Mean_v04
+EnergyDist             to complete                   to complete

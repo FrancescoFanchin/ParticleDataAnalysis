@@ -1,0 +1,2 @@
+rm -f evMean
+c++ -Wall -I. -o evMean main.cc read.cc Event.cc BraggStatistic.cc dump.cc

@@ -1,0 +1,64 @@
+
+---- Modify v01 and introduce classes ----
+
+Replace the struct "Event" with a class "Event" and 
+the functions "add" and "stat" with a class "BraggStatistic", as 
+described in the following.
+
+***
+Create a class "Event" with:
+- the event identifier,
+- the number of points,
+- the array of energies,
+- two "static" members with the min and max number of points.
+Add to the class:
+- a constructor taking the event-id as parameter,
+- a destructor,
+- a function "add" to append a point energy, taken as argument,
+- a function "dataSize" returning the number of points,
+- a function "energy" taking an int as argument and returning the energy 
+  at the corresponding point.
+Create and delete the array of energies in the contructor and destructor,
+using the max number of points as size.
+In the function "add" check if the max number of points has been reached, 
+if not append the new energy and increase the number of points.
+
+***
+Create a class "BraggStatistic" with:
+- two numbers for min and max total energy
+- the number of selected events
+- two arrays for sum of energies and squares for all points
+- two arrays for mean and rms energies for all points
+Add to the class:
+- a constructor taking the min and max energies as parameters,
+- a destructor,
+- a function "add" taking as argument a reference to const-Event,
+  to update the sum of energies and squares,
+- a function "compute" to compute mean and rms energies.
+- a function "nEvents" returning the number of selected events,
+- two functions "eMean" and "eRMS" returning the pointers to the 
+  arrays of mean and rms energies,
+Create and delete all the arrays in the contructor and destructor,
+using the min number of points as size.
+In the function "add" check if the total energy is in the required range, 
+if yes increase the sums.
+
+***
+In the "main" function create 4 instances of "BraggStatistic", to select 
+events with total energies in the ranges:
+background : min = 3000 , max = 5000
+africium   : min = 6000 , max = 6499
+asium      : min = 6500 , max = 6799
+australium : min = 6800 , max = 7200
+
+********* final list of functions *********
+
+main                   to complete
+read                   to complete
+dump                   modify Mean_v01
+
+********* final list of classes   *********
+
+                       .h                            .cc
+Event                  to complete                   to complete
+BraggStatistic         to complete                   to complete

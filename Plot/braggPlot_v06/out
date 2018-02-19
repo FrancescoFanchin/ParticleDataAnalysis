@@ -1,0 +1,39 @@
+compile  AnalysisFramework
+compile  AnalysisUtilities
+compile  AnalysisObjects
+In file included from BraggStatistic.cc:1:0:
+BraggStatistic.h:4:18: fatal error: TH1F.h: File o directory non esistente
+ #include "TH1F.h"
+                  ^
+compilation terminated.
+In file included from TotalEnergy.cc:2:0:
+TotalEnergy.h:4:20: fatal error: /Event.h: File o directory non esistente
+ #include "/Event.h"
+                    ^
+compilation terminated.
+compile  EventDump
+In file included from EventDump.cc:1:0:
+EventDump.h:5:30: fatal error: AnalysisSteering.h: File o directory non esistente
+ #include "AnalysisSteering.h"
+                              ^
+compilation terminated.
+compile  EnergyDist
+EnergyDist.cc:1:28: fatal error: BraggStatistic.h: File o directory non esistente
+ #include "BraggStatistic.h"
+                            ^
+compilation terminated.
+compile  BGCalc
+In file included from BGCalc.cc:1:0:
+BGCalc.h:4:30: fatal error: AnalysisSteering.h: File o directory non esistente
+ #include "AnalysisSteering.h"
+                              ^
+compilation terminated.
+compile  runDump
+c++: error: dum.cc: File o directory non esistente
+compile  runStat
+c++: error: dum.cc: File o directory non esistente
+compile  runAll
+c++: error: dum.cc: File o directory non esistente
+francesco@francesco-Satellite-A110:~/Documenti/c++/ESMIEI/12$ 
+
+

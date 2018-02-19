@@ -1,0 +1,39 @@
+
+---- Modify Plot_v02 and use a factory to create data analyzers ----
+
+***
+Take the following from "particleReco_v03":
+- the new versions of "AnalysisSteering.h,cc"
+  (and look at the differences with the v02 version),
+- "AnalysisFactory.h,cc".
+
+***
+Modify "EventDump.h,cc" and "EnergyDist.h,cc" taking "particleReco_v03" as 
+reference:
+- add an "AnalysisInfo*" as parameter to the constructor, and use it to 
+  initialize the "AnalysisSteering" base,
+- add a Builder class and object, as in particleReco_v03,
+- get from "AnalysisInfo*" the name of the output file
+  (only for "EnergyDist.cc")
+
+***
+Modify the "main" function to use "AnalysisFactory".
+
+********* final list of functions *********
+
+main                   modify Plot_v02
+
+********* final list of classes   *********
+
+                       .h                            .cc
+AnalysisInfo           copy   Plot_v02               copy   Plot_v02
+Event                  copy   Plot_v02               copy   Plot_v02
+EventSource            copy   Plot_v02               copy   Plot_v02
+EventReadFromFile      copy   Plot_v02               copy   Plot_v02
+EventSim               copy   Plot_v02               copy   Plot_v02
+SourceFactory          copy   Plot_v02               copy   Plot_v02
+AnalysisSteering       copy   particleReco_v03       copy   particleReco_v03
+AnalysisFactory        copy   particleReco_v03       copy   particleReco_v03
+EventDump              modify Plot_v02               modify Plot_v02
+BraggStatistic         copy   Plot_v02               copy   Plot_v02
+EnergyDist             modify Plot_v02               modify Plot_v02
